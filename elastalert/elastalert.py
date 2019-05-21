@@ -1035,7 +1035,7 @@ class ElastAlerter(object):
                     # Want to send email to address specified in the rule. Try and load the YAML to find it.
                     with open(rule_file) as f:
                         try:
-                            rule_yaml = yaml.safe_load(f)
+                            rule_yaml = yaml.full_load(f)
                         except yaml.scanner.ScannerError:
                             self.send_notification_email(exception=e)
                             continue
